@@ -14,6 +14,7 @@ class FixtureVC: UIViewController {
     var fixtureListResponse: FixtureListResponse?
     var picker = UIPickerView()
     var seasonArray = [2022, 2021, 2020, 2019]
+    var fixtureDictionary = [[Int:Response]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,15 @@ class FixtureVC: UIViewController {
         let request = FixtureListRequest.init(season: season, league: 203)
         NetworkManager.shared.getFixtureList(request: request) { result in
             switch result {
-            case .success(let response):
-                self.fixtureListResponse = response
+            case .success(let model):
+                if let response = model.response {
+                    for element in response {
+                        print(element)
+                        let week = Int(element.league?.round?.components(separatedBy: "- ").last ?? "") ?? 0
+                        self.fixtureDictionary.append([week:element])
+                    }
+                }
+                self.fixtureListResponse = model
                 self.reloadTableView()
             case .failure(let error):
                 print(error)
@@ -63,6 +71,10 @@ class FixtureVC: UIViewController {
 
 extension FixtureVC: UITableViewDataSource {
   
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fixtureDictionary.dictionary.keys.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fixtureListResponse?.response?.count ?? 0
     }
@@ -73,6 +85,8 @@ extension FixtureVC: UITableViewDataSource {
         cell.configureUI(response: fixtureListResponse?.response?[indexPath.row])
         return cell
     }
+    
+    
 }
 
 extension FixtureVC: UITableViewDelegate {
