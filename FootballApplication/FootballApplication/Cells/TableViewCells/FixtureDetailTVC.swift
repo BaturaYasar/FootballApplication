@@ -23,38 +23,23 @@ class FixtureDetailTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backView.makeShadow()
-        homeImage.makeCornerRadius(radius: homeImage.frame.size.width / 2)
-        awayImage.makeCornerRadius(radius: awayImage.frame.size.width / 2)
-        
-        
+        setupUI()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    fileprivate func reloadTableView() {
-        DispatchQueue.main.async {
-            self.reloadTableView()
-        }
+    func setupUI() {
+        backView.makeShadow()
+        homeImage.makeRounded()
+        awayImage.makeRounded()
     }
-    
-    func getDate(stringDate:String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZ"
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = Locale.current
-        return dateFormatter.date(from: stringDate) // replace Date String
-    }
-    
-    // #00FF00
-    //    2022-08-07T18:45:00+00:00
-    //    yyyy-MM-dd'T'HH:mm:ss
     
     func configureUI(response:Response?) {
         stadiumLabel.text = response?.fixture?.venue?.name ?? ""
-        dateLabel.text = getDate(stringDate: response?.fixture?.date ?? "")?.convertToString(format: "yyyy-MM-dd HH:mm")
+        let date = response?.fixture?.date ?? ""
+        dateLabel.text = date.getDate()?.convertToString(format: "yyyy-MM-dd HH:mm")
         
         if let home = response?.score?.fulltime?.home,
            let away = response?.score?.fulltime?.away {
@@ -86,12 +71,4 @@ class FixtureDetailTVC: UITableViewCell {
         
     }
     
-}
-
-extension Date {
-    func getFormattedDate(format: String) -> String {
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = format
-        return dateformat.string(from: self)
-    }
 }

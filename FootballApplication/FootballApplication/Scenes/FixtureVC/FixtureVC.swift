@@ -66,13 +66,13 @@ class FixtureVC: UIViewController {
             }
         }
     }
-    
 }
 
 extension FixtureVC: UITableViewDataSource {
   
     func numberOfSections(in tableView: UITableView) -> Int {
-        return fixtureDictionary.dictionary.keys.count
+//        return fixtureDictionary.dictionary.keys.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,6 +84,18 @@ extension FixtureVC: UITableViewDataSource {
         
         cell.configureUI(response: fixtureListResponse?.response?[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedMatch = fixtureListResponse?.response?[indexPath.row] {
+            let vc = BottomSheetDetailVC()
+            vc.fixtureResponse = selectedMatch
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .custom
+            self.present(vc, animated: true)
+        }
+       
+        
     }
     
     

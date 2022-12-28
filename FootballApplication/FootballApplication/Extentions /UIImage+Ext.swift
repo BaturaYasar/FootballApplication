@@ -15,6 +15,11 @@ extension UIImageView {
                 .transition(.fade(0.25)),
             ]
         )
-
+    }
+    
+    func makeRounded() {
+        layer.masksToBounds = false
+        layer.cornerRadius = self.frame.height / 2
+        clipsToBounds = true
     }
 }
