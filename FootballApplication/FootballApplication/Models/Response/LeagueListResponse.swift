@@ -41,6 +41,7 @@ struct Response: Codable {
     let league: League?
     let country: Country?
     let seasons: [Season]?
+    let venue: Venue?
 }
 
 // MARK: - Country
@@ -55,6 +56,7 @@ struct League: Codable {
     let name, type: String?
     let logo: String?
     let round: String?
+    let country: String?
 }
 
 // MARK: - Season

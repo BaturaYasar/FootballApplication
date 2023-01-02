@@ -16,6 +16,8 @@ protocol NetworkManagerDelegate {
     
     func getFixtureList(request:FixtureListRequest, completition: @escaping (Result<FixtureListResponse, Error>) -> ())
     
+    func getTeamStatistic(request:TeamStatisticRequest, completition: @escaping (Result<TeamDetailResponse, Error>) -> ())
+    
 }
 
 class NetworkManager:NetworkManagerDelegate {
@@ -29,6 +31,10 @@ class NetworkManager:NetworkManagerDelegate {
     
     func getFixtureList(request: FixtureListRequest, completition: @escaping (Result<FixtureListResponse, Error>) -> ()) {
         requestData(target: FixtureAPI.fixtureList(fixtureListRequest: request), completion: completition)
+    }
+    
+    func getTeamStatistic(request: TeamStatisticRequest, completition: @escaping (Result<TeamDetailResponse, Error>) -> ()) {
+        requestData(target: TeamsAPI.teamStatistic(teamStatistic: request), completion: completition)
     }
     
     

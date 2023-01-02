@@ -15,6 +15,8 @@ class FixtureVC: UIViewController {
     var picker = UIPickerView()
     var seasonArray = [2022, 2021, 2020, 2019]
     var fixtureDictionary = [[Int:Response]]()
+    var leagueID: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,8 @@ class FixtureVC: UIViewController {
     }
     
     func getFixtureList(season: Int) {
-        let request = FixtureListRequest.init(season: season, league: 203)
+        guard let leagueID = leagueID else {return}
+        let request = FixtureListRequest.init(season: season, league: leagueID)
         NetworkManager.shared.getFixtureList(request: request) { result in
             switch result {
             case .success(let model):
@@ -66,12 +69,29 @@ class FixtureVC: UIViewController {
             }
         }
     }
+    
+    @objc func toHomeTeamDetail(_ sender:UIButton) {
+        let touchedHomeTeam = fixtureListResponse?.response?.first(where: {$0.teams?.home?.id == sender.tag})
+        let vc = TeamDetailVC()
+        vc.teamResponse = fixtureListResponse
+        vc.teamID = sender.tag
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func toAwayTeamDetail(_ sender:UIButton) {
+        let touchedAwayTeam = fixtureListResponse?.response?.first(where: {$0.teams?.away?.id == sender.tag})
+        let vc = TeamDetailVC()
+        vc.teamResponse = fixtureListResponse
+        vc.teamID = sender.tag
+        navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
 }
 
 extension FixtureVC: UITableViewDataSource {
-  
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return fixtureDictionary.dictionary.keys.count
         return 1
     }
     
@@ -81,8 +101,11 @@ extension FixtureVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FixtureDetailTVC.identifier, for: indexPath) as! FixtureDetailTVC
-        
         cell.configureUI(response: fixtureListResponse?.response?[indexPath.row])
+        cell.homeButtonOutlet.tag = fixtureListResponse?.response?[indexPath.row].teams?.home?.id ?? 0
+        cell.awayButtonOutlet.tag = fixtureListResponse?.response?[indexPath.row].teams?.away?.id ?? 0
+        cell.homeButtonOutlet.addTarget(self, action:#selector(toHomeTeamDetail(_:)), for: .touchUpInside)
+        cell.awayButtonOutlet.addTarget(self, action:#selector(toAwayTeamDetail(_:)), for: .touchUpInside)
         return cell
     }
     
@@ -94,11 +117,7 @@ extension FixtureVC: UITableViewDataSource {
             vc.modalPresentationStyle = .custom
             self.present(vc, animated: true)
         }
-       
-        
     }
-    
-    
 }
 
 extension FixtureVC: UITableViewDelegate {
@@ -110,11 +129,11 @@ extension FixtureVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return seasonArray.count
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(seasonArray[row])"
     }

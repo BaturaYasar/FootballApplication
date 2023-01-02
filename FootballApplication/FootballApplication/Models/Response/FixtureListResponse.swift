@@ -48,8 +48,8 @@ struct Status: Codable {
 
 // MARK: - Venue
 struct Venue: Codable {
-    let id: Int?
-    let name, city: String?
+    let id, capacity: Int?
+    let name, city, address: String?
 }
 
 // MARK: - Goals

@@ -10,6 +10,12 @@
 		6601C7B1295C94B400D5BC8D /* BottomSheetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601C7AF295C94B400D5BC8D /* BottomSheetDetailVC.swift */; };
 		6601C7B2295C94B400D5BC8D /* BottomSheetDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6601C7B0295C94B400D5BC8D /* BottomSheetDetailVC.xib */; };
 		6601C7B4295C96BF00D5BC8D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601C7B3295C96BE00D5BC8D /* String+Ext.swift */; };
+		6601C7BA295CA63F00D5BC8D /* TeamDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601C7B8295CA63F00D5BC8D /* TeamDetailVC.swift */; };
+		6601C7BB295CA63F00D5BC8D /* TeamDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6601C7B9295CA63F00D5BC8D /* TeamDetailVC.xib */; };
+		6601C7BD295CA80D00D5BC8D /* TeamStatisticResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601C7BC295CA80D00D5BC8D /* TeamStatisticResponse.swift */; };
+		6601C7BF295CA95200D5BC8D /* TeamStatisticRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6601C7BE295CA95200D5BC8D /* TeamStatisticRequest.swift */; };
+		6665412C295E031500282F3B /* DetailFixtureCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6665412A295E031500282F3B /* DetailFixtureCVC.swift */; };
+		6665412D295E031500282F3B /* DetailFixtureCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6665412B295E031500282F3B /* DetailFixtureCVC.xib */; };
 		66A82FF2295A10A700A57AE2 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66A82FE6295A10A700A57AE2 /* OpenSans-SemiBold.ttf */; };
 		66A82FF3295A10A700A57AE2 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66A82FE7295A10A700A57AE2 /* OpenSans-Light.ttf */; };
 		66A82FF4295A10A700A57AE2 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66A82FE8295A10A700A57AE2 /* OpenSans-Italic.ttf */; };
@@ -57,6 +63,12 @@
 		6601C7AF295C94B400D5BC8D /* BottomSheetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetDetailVC.swift; sourceTree = "<group>"; };
 		6601C7B0295C94B400D5BC8D /* BottomSheetDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetDetailVC.xib; sourceTree = "<group>"; };
 		6601C7B3295C96BE00D5BC8D /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		6601C7B8295CA63F00D5BC8D /* TeamDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailVC.swift; sourceTree = "<group>"; };
+		6601C7B9295CA63F00D5BC8D /* TeamDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamDetailVC.xib; sourceTree = "<group>"; };
+		6601C7BC295CA80D00D5BC8D /* TeamStatisticResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatisticResponse.swift; sourceTree = "<group>"; };
+		6601C7BE295CA95200D5BC8D /* TeamStatisticRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatisticRequest.swift; sourceTree = "<group>"; };
+		6665412A295E031500282F3B /* DetailFixtureCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFixtureCVC.swift; sourceTree = "<group>"; };
+		6665412B295E031500282F3B /* DetailFixtureCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailFixtureCVC.xib; sourceTree = "<group>"; };
 		66A82FE6295A10A700A57AE2 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		66A82FE7295A10A700A57AE2 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		66A82FE8295A10A700A57AE2 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
@@ -113,6 +125,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6601C7B6295C9F3B00D5BC8D /* BottomSheetDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				6601C7AF295C94B400D5BC8D /* BottomSheetDetailVC.swift */,
+				6601C7B0295C94B400D5BC8D /* BottomSheetDetailVC.xib */,
+			);
+			path = BottomSheetDetailVC;
+			sourceTree = "<group>";
+		};
+		6601C7B7295CA62400D5BC8D /* TeamDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				6601C7B8295CA63F00D5BC8D /* TeamDetailVC.swift */,
+				6601C7B9295CA63F00D5BC8D /* TeamDetailVC.xib */,
+			);
+			path = TeamDetailVC;
+			sourceTree = "<group>";
+		};
+		66654128295E02EE00282F3B /* LeagueCVC */ = {
+			isa = PBXGroup;
+			children = (
+				66D4241A29574691000607CE /* LeagueCVC.swift */,
+				66D4241B29574691000607CE /* LeagueCVC.xib */,
+			);
+			path = LeagueCVC;
+			sourceTree = "<group>";
+		};
+		66654129295E02F400282F3B /* DetailFixtureCVC */ = {
+			isa = PBXGroup;
+			children = (
+				6665412A295E031500282F3B /* DetailFixtureCVC.swift */,
+				6665412B295E031500282F3B /* DetailFixtureCVC.xib */,
+			);
+			path = DetailFixtureCVC;
+			sourceTree = "<group>";
+		};
 		66A82FE4295A104E00A57AE2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +191,9 @@
 		66A82FFE295A126300A57AE2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				6601C7B7295CA62400D5BC8D /* TeamDetailVC */,
 				66FFE89F295C7C2E00445CE1 /* FixtureVC */,
-				6601C7AF295C94B400D5BC8D /* BottomSheetDetailVC.swift */,
-				6601C7B0295C94B400D5BC8D /* BottomSheetDetailVC.xib */,
+				6601C7B6295C9F3B00D5BC8D /* BottomSheetDetailVC */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -246,6 +294,7 @@
 			children = (
 				66D42400295745E6000607CE /* LeagueListResponse.swift */,
 				66A83003295A147A00A57AE2 /* FixtureListResponse.swift */,
+				6601C7BC295CA80D00D5BC8D /* TeamStatisticResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -255,6 +304,7 @@
 			children = (
 				66D42402295745E6000607CE /* LeagueListRequest.swift */,
 				66A83005295A152500A57AE2 /* FixtureListRequest.swift */,
+				6601C7BE295CA95200D5BC8D /* TeamStatisticRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -276,8 +326,8 @@
 		66D4241929574661000607CE /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				66D4241A29574691000607CE /* LeagueCVC.swift */,
-				66D4241B29574691000607CE /* LeagueCVC.xib */,
+				66654129295E02F400282F3B /* DetailFixtureCVC */,
+				66654128295E02EE00282F3B /* LeagueCVC */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -361,6 +411,8 @@
 				66A82FF9295A10A700A57AE2 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				66A82FFB295A10A700A57AE2 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				66A82FF8295A10A700A57AE2 /* OpenSans-Bold.ttf in Resources */,
+				6601C7BB295CA63F00D5BC8D /* TeamDetailVC.xib in Resources */,
+				6665412D295E031500282F3B /* DetailFixtureCVC.xib in Resources */,
 				66A82FF5295A10A700A57AE2 /* OpenSans-MediumItalic.ttf in Resources */,
 				66A82FF3295A10A700A57AE2 /* OpenSans-Light.ttf in Resources */,
 				66A82FF6295A10A700A57AE2 /* OpenSans-ExtraBold.ttf in Resources */,
@@ -388,12 +440,15 @@
 			files = (
 				6601C7B1295C94B400D5BC8D /* BottomSheetDetailVC.swift in Sources */,
 				66A83010295B3FEC00A57AE2 /* UIColor+Ext.swift in Sources */,
+				6601C7BD295CA80D00D5BC8D /* TeamStatisticResponse.swift in Sources */,
 				66D42408295745E6000607CE /* FixtureAPI.swift in Sources */,
+				6665412C295E031500282F3B /* DetailFixtureCVC.swift in Sources */,
 				66D423E7295745CA000607CE /* ViewController.swift in Sources */,
 				66A8300B295A19CF00A57AE2 /* FixtureDetailTVC.swift in Sources */,
 				66D4240E295745E6000607CE /* LeagueListRequest.swift in Sources */,
 				66D42409295745E6000607CE /* TeamsAPI.swift in Sources */,
 				6601C7B4295C96BF00D5BC8D /* String+Ext.swift in Sources */,
+				6601C7BF295CA95200D5BC8D /* TeamStatisticRequest.swift in Sources */,
 				66A8300E295A1FF400A57AE2 /* Date+Ext.swift in Sources */,
 				66D42412295745E6000607CE /* UIView+Ext.swift in Sources */,
 				66D4240B295745E6000607CE /* NetworkManager.swift in Sources */,
@@ -402,6 +457,7 @@
 				66D4240A295745E6000607CE /* LeagueAPI.swift in Sources */,
 				66D4240C295745E6000607CE /* BaseTarget.swift in Sources */,
 				66A83001295A12E100A57AE2 /* FixtureVC.swift in Sources */,
+				6601C7BA295CA63F00D5BC8D /* TeamDetailVC.swift in Sources */,
 				66D423E3295745CA000607CE /* AppDelegate.swift in Sources */,
 				66D42411295745E6000607CE /* NSObject+Ext.swift in Sources */,
 				66D42410295745E6000607CE /* UIImage+Ext.swift in Sources */,

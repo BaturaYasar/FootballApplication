@@ -99,11 +99,29 @@
                             <constraint firstItem="GlR-2j-gu6" firstAttribute="leading" secondItem="SJX-o9-lJK" secondAttribute="leading" constant="8" id="yQN-uS-tp9"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S53-XZ-zyl">
+                        <rect key="frame" x="67" y="67" width="85.333333333333314" height="20.333333333333329"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVS-kE-TGm">
+                        <rect key="frame" x="237.66666666666666" y="67" width="85.333333333333343" height="20.333333333333329"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="S53-XZ-zyl" firstAttribute="top" secondItem="jQ7-8d-s2q" secondAttribute="top" id="BXp-X2-s41"/>
+                    <constraint firstItem="S53-XZ-zyl" firstAttribute="trailing" secondItem="jQ7-8d-s2q" secondAttribute="trailing" id="CK5-5Z-53R"/>
+                    <constraint firstItem="S53-XZ-zyl" firstAttribute="leading" secondItem="jQ7-8d-s2q" secondAttribute="leading" id="JaK-uC-awr"/>
+                    <constraint firstItem="S53-XZ-zyl" firstAttribute="bottom" secondItem="jQ7-8d-s2q" secondAttribute="bottom" id="NTX-1H-wuj"/>
+                    <constraint firstItem="uVS-kE-TGm" firstAttribute="trailing" secondItem="imC-e8-Tln" secondAttribute="trailing" id="TpS-dx-Bg0"/>
+                    <constraint firstItem="uVS-kE-TGm" firstAttribute="top" secondItem="imC-e8-Tln" secondAttribute="top" id="U3V-Z8-vcb"/>
                     <constraint firstItem="SJX-o9-lJK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ksu-ij-zS2"/>
                     <constraint firstItem="SJX-o9-lJK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="mAT-mY-v5q"/>
+                    <constraint firstItem="uVS-kE-TGm" firstAttribute="bottom" secondItem="imC-e8-Tln" secondAttribute="bottom" id="p1i-vC-rJB"/>
+                    <constraint firstItem="uVS-kE-TGm" firstAttribute="leading" secondItem="imC-e8-Tln" secondAttribute="leading" id="pFR-5H-XhH"/>
                     <constraint firstAttribute="bottom" secondItem="SJX-o9-lJK" secondAttribute="bottom" constant="8" id="wnK-Cx-7Cm"/>
                     <constraint firstAttribute="trailing" secondItem="SJX-o9-lJK" secondAttribute="trailing" constant="12" id="zqj-c1-E9E"/>
                 </constraints>
@@ -111,10 +129,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="awayButtonOutlet" destination="uVS-kE-TGm" id="FZ5-mz-VKh"/>
                 <outlet property="awayImage" destination="TFt-I2-MZh" id="OGm-TC-sHY"/>
                 <outlet property="awayLabel" destination="imC-e8-Tln" id="egF-TF-zbH"/>
                 <outlet property="backView" destination="SJX-o9-lJK" id="kQP-2W-JKh"/>
                 <outlet property="dateLabel" destination="OV2-9r-j7a" id="z3P-Vq-rVS"/>
+                <outlet property="homeButtonOutlet" destination="S53-XZ-zyl" id="JK0-4i-u8g"/>
                 <outlet property="homeImage" destination="GlR-2j-gu6" id="wlH-EK-0vd"/>
                 <outlet property="homeLabel" destination="jQ7-8d-s2q" id="zM8-4z-omM"/>
                 <outlet property="scoreLabel" destination="IMe-xp-O77" id="cHN-Uh-DuI"/>

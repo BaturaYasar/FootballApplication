@@ -18,7 +18,8 @@ class FixtureDetailTVC: UITableViewCell {
     @IBOutlet weak var awayImage: UIImageView!
     @IBOutlet weak var homeImage: UIImageView!
     @IBOutlet weak var backView: UIView!
-    var response1: Response?
+    @IBOutlet weak var homeButtonOutlet: UIButton!
+    @IBOutlet weak var awayButtonOutlet: UIButton!
     
     
     override func awakeFromNib() {
@@ -70,5 +71,6 @@ class FixtureDetailTVC: UITableViewCell {
 //        }
         
     }
+    
     
 }

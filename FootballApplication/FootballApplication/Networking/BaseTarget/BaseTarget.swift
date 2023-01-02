@@ -21,7 +21,7 @@ public extension BaseTarget {
         }
     }
     var headers: [String : String]? {[
-        "X-RapidAPI-Key": "155d2168bbmshc6d6702ed9fa1e4p1e1a44jsnee4d94fb2f76",
+        "X-RapidAPI-Key": "4d0d5ea12cmsh428363f07a05d6bp1a6fd8jsnc7eaa04c8974",
         "X-RapidAPI-Host": "api-football-beta.p.rapidapi.com"
     ]}
     var sampleData: Data {Data()}

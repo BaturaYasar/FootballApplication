@@ -34,7 +34,7 @@ class BottomSheetDetailVC: UIViewController {
     
     func configureUI() {
         guard let response = fixtureResponse else {return}
-        stadiumLabel.text = response.fixture?.venue?.name ?? ""
+        stadiumLabel.text = response.venue?.name ?? ""
         let date = response.fixture?.date ?? ""
         dateLabel.text = date.getDate()?.convertToString(format: "yyyy-MM-dd HH:mm")
         
