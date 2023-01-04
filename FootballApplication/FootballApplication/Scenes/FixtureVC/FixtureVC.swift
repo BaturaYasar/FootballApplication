@@ -14,7 +14,8 @@ class FixtureVC: UIViewController {
     var fixtureListResponse: FixtureListResponse?
     var picker = UIPickerView()
     var seasonArray = [2022, 2021, 2020, 2019]
-    var fixtureDictionary = [[Int:Response]]()
+    var fixtureDictionary = [String:[Response]]()
+    var fixtureSection: [FixtureSectionModel] = []
     var leagueID: Int?
     
     
@@ -55,14 +56,16 @@ class FixtureVC: UIViewController {
         NetworkManager.shared.getFixtureList(request: request) { result in
             switch result {
             case .success(let model):
-                if let response = model.response {
-                    for element in response {
-                        print(element)
-                        let week = Int(element.league?.round?.components(separatedBy: "- ").last ?? "") ?? 0
-                        self.fixtureDictionary.append([week:element])
+                self.fixtureListResponse = model
+                self.fixtureSection.removeAll()
+                if let response = self.fixtureListResponse?.response {
+                    self.fixtureDictionary = Dictionary(grouping: response, by: {$0.league?.round?.components(separatedBy: "- ").last ?? ""})
+                    self.fixtureDictionary.forEach { item in
+                        let tempFixtureSectionModel = FixtureSectionModel(week: Int(item.key) ?? 0, fixtureItem: item.value)
+                        self.fixtureSection.append(tempFixtureSectionModel)
                     }
                 }
-                self.fixtureListResponse = model
+                self.fixtureSection = self.fixtureSection.sorted(by: {$0.week < $1.week})
                 self.reloadTableView()
             case .failure(let error):
                 print(error)
@@ -92,18 +95,19 @@ class FixtureVC: UIViewController {
 extension FixtureVC: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fixtureSection.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fixtureListResponse?.response?.count ?? 0
+        return fixtureSection[section].fixtureItem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FixtureDetailTVC.identifier, for: indexPath) as! FixtureDetailTVC
-        cell.configureUI(response: fixtureListResponse?.response?[indexPath.row])
-        cell.homeButtonOutlet.tag = fixtureListResponse?.response?[indexPath.row].teams?.home?.id ?? 0
-        cell.awayButtonOutlet.tag = fixtureListResponse?.response?[indexPath.row].teams?.away?.id ?? 0
+        let model = fixtureSection[indexPath.section].fixtureItem[indexPath.row]
+        cell.configureUI(response: model)
+        cell.homeButtonOutlet.tag = model.teams?.home?.id ?? 0
+        cell.awayButtonOutlet.tag = model.teams?.away?.id ?? 0
         cell.homeButtonOutlet.addTarget(self, action:#selector(toHomeTeamDetail(_:)), for: .touchUpInside)
         cell.awayButtonOutlet.addTarget(self, action:#selector(toAwayTeamDetail(_:)), for: .touchUpInside)
         return cell
@@ -118,6 +122,12 @@ extension FixtureVC: UITableViewDataSource {
             self.present(vc, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "\(fixtureSection[section].week). Week"
+    }
+    
+    
 }
 
 extension FixtureVC: UITableViewDelegate {
@@ -146,4 +156,9 @@ extension FixtureVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     
+}
+
+struct FixtureSectionModel {
+    var week: Int
+    var fixtureItem: [Response]
 }
